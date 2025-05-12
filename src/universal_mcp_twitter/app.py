@@ -4,7 +4,7 @@ from universal_mcp.integrations import Integration
 
 class TwitterApp(APIApplication):
     def __init__(self, integration: Integration = None, **kwargs) -> None:
-        super().__init__(name='twitterapp', integration=integration, **kwargs)
+        super().__init__(name='twitter', integration=integration, **kwargs)
         self.base_url = "https://api.twitter.com"
 
     def list_batch_compliance_jobs(self, type, status=None, compliance_job_fields=None) -> dict[str, Any]:
@@ -747,7 +747,7 @@ class TwitterApp(APIApplication):
             dict[str, Any]: The request has succeeded.
 
         Tags:
-            Tweets
+            Tweets, important
         """
         url = f"{self.base_url}/2/tweets"
         query_params = {k: v for k, v in [('ids', ids), ('tweet.fields', tweet_fields), ('expansions', expansions), ('media.fields', media_fields), ('poll.fields', poll_fields), ('user.fields', user_fields), ('place.fields', place_fields)] if v is not None}
@@ -1462,7 +1462,7 @@ class TwitterApp(APIApplication):
             dict[str, Any]: The request has succeeded.
 
         Tags:
-            Users
+            Users, important
         """
         url = f"{self.base_url}/2/users/by"
         query_params = {k: v for k, v in [('usernames', usernames), ('user.fields', user_fields), ('expansions', expansions), ('tweet.fields', tweet_fields)] if v is not None}
@@ -1728,7 +1728,7 @@ class TwitterApp(APIApplication):
             dict[str, Any]: The request has succeeded.
 
         Tags:
-            Lists
+            Lists, important
         """
         if id is None:
             raise ValueError("Missing required parameter 'id'")
@@ -2242,7 +2242,7 @@ class TwitterApp(APIApplication):
             dict[str, Any]: The request has succeeded.
 
         Tags:
-            Tweets
+            Tweets, important
         """
         if id is None:
             raise ValueError("Missing required parameter 'id'")
